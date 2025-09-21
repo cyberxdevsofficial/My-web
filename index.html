@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Viewer Counts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      margin-bottom: 30px;
+      color: #00ffcc;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      margin: 15px auto;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.5);
+    }
+    .count {
+      font-size: 24px;
+      margin-top: 10px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Website Visitor Counts</h1>
+
+  <div class="card">
+    <h2>anuwh-md-mini.vercel.app</h2>
+    <div class="count" id="site1">Loading...</div>
+  </div>
+
+  <div class="card">
+    <h2>anuwa-md-mini-964f9cb6f031.herokuapp.com</h2>
+    <div class="count" id="site2">Loading...</div>
+  </div>
+
+  <div class="card">
+    <h2>anuwh-mini-c136580ad3fd.herokuapp.com</h2>
+    <div class="count" id="site3">Loading...</div>
+  </div>
+
+  <script>
+    // CountAPI endpoints (auto creates counters)
+    const urls = {
+      site1: "https://api.countapi.xyz/hit/anuwh-md-mini.vercel.app/visits",
+      site2: "https://api.countapi.xyz/hit/anuwa-md-mini-964f9cb6f031.herokuapp.com/visits",
+      site3: "https://api.countapi.xyz/hit/anuwh-mini-c136580ad3fd.herokuapp.com/visits"
+    };
+
+    async function updateCounts() {
+      for (let id in urls) {
+        try {
+          let res = await fetch(urls[id]);
+          let data = await res.json();
+          document.getElementById(id).innerText = data.value + " views";
+        } catch (e) {
+          document.getElementById(id).innerText = "Error loading count";
+        }
+      }
+    }
+
+    updateCounts();
+  </script>
+</body>
+</html>
