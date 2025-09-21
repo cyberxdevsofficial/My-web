@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  text-align: center;
+  padding: 40px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  color: #00ffcc;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 20px;
+  margin: 15px auto;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.5);
+}
+
+.count {
+  font-size: 24px;
+  margin-top: 10px;
+  color: #ffcc00;
+}
